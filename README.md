@@ -32,7 +32,7 @@ $ composer test
 
 ## Security
 
-If you discover any security related issues, please use the issue tracker.
+If you discover any security related issues, please email inasyrov@ya.ru instead of using the issue tracker.
 
 ## Credits
 
