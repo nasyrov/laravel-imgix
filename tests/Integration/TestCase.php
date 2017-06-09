@@ -2,6 +2,7 @@
 
 namespace Nasyrov\Laravel\Imgix\Tests\Integration;
 
+use Nasyrov\Laravel\Imgix\Facades\Imgix;
 use Nasyrov\Laravel\Imgix\ImgixServiceProvider;
 use Orchestra\Testbench\TestCase as BaseTestCase;
 
@@ -27,7 +28,7 @@ abstract class TestCase extends BaseTestCase
     protected function getPackageAliases($app)
     {
         return [
-            'Analytics' => AnalyticsFacade::class,
+            'Imgix' => Imgix::class,
         ];
     }
 }

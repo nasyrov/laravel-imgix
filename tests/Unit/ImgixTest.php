@@ -2,23 +2,23 @@
 
 namespace Nasyrov\Laravel\Imgix\Tests\Unit;
 
-use Imgix\UrlBuilder as BaseUrlBuilder;
+use Imgix\UrlBuilder;
 use Mockery;
-use Nasyrov\Laravel\Imgix\UrlBuilder;
+use Nasyrov\Laravel\Imgix\Imgix;
 use PHPUnit\Framework\TestCase;
 
-class UrlBuilderTest extends TestCase
+class ImgixTest extends TestCase
 {
     /** @var \Imgix\UrlBuilder|\Mockery\Mock */
-    protected $baseUrlBuilder;
-
-    /** @var \Nasyrov\Laravel\Imgix\UrlBuilder */
     protected $urlBuilder;
+
+    /** @var \Nasyrov\Laravel\Imgix\Imgix */
+    protected $imgix;
 
     protected function setUp()
     {
-        $this->baseUrlBuilder = Mockery::mock(BaseUrlBuilder::class);
-        $this->urlBuilder = new UrlBuilder($this->baseUrlBuilder);
+        $this->urlBuilder = Mockery::mock(UrlBuilder::class);
+        $this->imgix = new Imgix($this->urlBuilder);
     }
 
     protected function tearDown()
@@ -36,12 +36,12 @@ class UrlBuilderTest extends TestCase
 
         $expectedReturn = 'http://test.imgix.net/bridge.png?h=100&w=100';
 
-        $this->baseUrlBuilder
+        $this->urlBuilder
             ->shouldReceive('createURL')->withArgs($expectedArgs)
             ->once()
             ->andReturn($expectedReturn);
 
-        $response = $this->urlBuilder->createUrl($path, $params);
+        $response = $this->imgix->createUrl($path, $params);
 
         $this->assertEquals($expectedReturn, $response);
     }

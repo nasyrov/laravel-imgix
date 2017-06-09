@@ -2,23 +2,23 @@
 
 namespace Nasyrov\Laravel\Imgix;
 
-use Imgix\UrlBuilder as BaseUrlBuilder;
+use Imgix\UrlBuilder;
 
-class UrlBuilder
+class Imgix
 {
     /**
-     * The url builder instance.
+     * The imgix url builder instance.
      *
-     * @var BaseUrlBuilder
+     * @var UrlBuilder
      */
     protected $urlBuilder;
 
     /**
-     * Create a new url builder instance.
+     * Create a new imgix instance.
      *
-     * @param BaseUrlBuilder $urlBuilder
+     * @param UrlBuilder $urlBuilder
      */
-    public function __construct(BaseUrlBuilder $urlBuilder)
+    public function __construct(UrlBuilder $urlBuilder)
     {
         $this->urlBuilder = $urlBuilder;
     }
