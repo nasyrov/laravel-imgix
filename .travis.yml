@@ -6,6 +6,7 @@ php:
     - 7.1
     - hhvm
 
+dist: trusty
 sudo: false
 
 cache:
@@ -21,7 +22,7 @@ before_script:
     - travis_retry composer update ${COMPOSER_FLAGS} --no-interaction --prefer-dist
 
 script:
-    - vendor/bin/phpcs --standard=psr2 src/
+    - vendor/bin/phpcs --standard=psr2 src
     - vendor/bin/phpunit --coverage-text --coverage-clover=coverage.clover
 
 after_script:
