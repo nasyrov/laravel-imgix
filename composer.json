@@ -27,6 +27,9 @@
         "squizlabs/php_codesniffer": "~3.0"
     },
     "autoload": {
+        "files": [
+            "src/helpers.php"
+        ],
         "psr-4": {
             "Nasyrov\\Laravel\\Imgix\\": "src"
         }
