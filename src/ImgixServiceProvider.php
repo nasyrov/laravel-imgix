@@ -14,7 +14,7 @@ class ImgixServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->publishes([
-            __DIR__ . '/config/imgix.php' => config_path('imgix.php'),
+            dirname(__DIR__) . '/config/imgix.php' => config_path('imgix.php'),
         ], 'imgix');
     }
 
