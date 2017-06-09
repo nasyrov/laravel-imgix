@@ -10,7 +10,7 @@
          processIsolation="false"
          stopOnFailure="false">
     <testsuites>
-        <testsuite name="Nasyrov Test Suite">
+        <testsuite name="Laravel Imgix Test Suite">
             <directory>tests</directory>
         </testsuite>
     </testsuites>
