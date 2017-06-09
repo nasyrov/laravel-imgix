@@ -4,14 +4,12 @@ namespace Nasyrov\Laravel\Imgix;
 
 use Illuminate\Support\ServiceProvider;
 use Imgix\ShardStrategy;
-use Imgix\UrlBuilder;
+use Imgix\UrlBuilder as BaseUrlBuilder;
 
 class ImgixServiceProvider extends ServiceProvider
 {
     /**
      * Bootstrap any application services.
-     *
-     * @return void
      */
     public function boot()
     {
@@ -22,19 +20,21 @@ class ImgixServiceProvider extends ServiceProvider
 
     /**
      * Register any application services.
-     *
-     * @return void
      */
     public function register()
     {
-        $this->app->singleton(UrlBuilder::class, function () {
-            return new UrlBuilder(
+        $this->app->singleton(BaseUrlBuilder::class, function () {
+            return new BaseUrlBuilder(
                 config('imgix.domains', []),
                 config('imgix.useHttps', false),
                 config('imgix.signKey', ''),
                 config('imgix.shardStrategy', ShardStrategy::CRC),
                 config('imgix.includeLibraryParam', true)
             );
+        });
+
+        $this->app->singleton(UrlBuilder::class, function ($app) {
+            return new UrlBuilder($app[BaseUrlBuilder::class]);
         });
 
         $this->app->alias(UrlBuilder::class, 'imgix');

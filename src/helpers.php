@@ -2,7 +2,7 @@
 
 if (!function_exists('imgix')) {
     /**
-     * Generate an Imgix URL for the given path.
+     * Generate an imgix url for the given path.
      *
      * @param string $path
      * @param array $params
