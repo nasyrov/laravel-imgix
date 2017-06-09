@@ -16,10 +16,36 @@ Make sure all dependencies have been installed before moving on:
 
 ## Install
 
-Via Composer
+Install via Composer:
 
 ``` bash
 $ composer require nasyrov/laravel-imgix
+```
+
+Register the service provider in `config/app.php`:
+
+``` php
+'providers' => [
+    ...
+    Nasyrov\Laravel\Imgix\ImgixServiceProvider::class,
+    ...
+]
+```
+
+Register the facade in `config/app.php`:
+
+```php
+'aliases' => [
+    ...
+    'Imgix' =>  Nasyrov\Laravel\Imgix\Facades\Imgix::class,
+    ...
+]
+```
+
+Publish the config:
+
+``` bash
+php artisan vendor:publish --provider="Nasyrov\Laravel\Imgix\ImgixServiceProvider"
 ```
 
 ## Usage
