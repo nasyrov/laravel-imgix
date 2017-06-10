@@ -8,6 +8,8 @@ use Imgix\UrlBuilder;
 
 class ImgixServiceProvider extends ServiceProvider
 {
+    const ALIAS = 'imgix';
+
     /**
      * Bootstrap any application services.
      */
@@ -37,6 +39,6 @@ class ImgixServiceProvider extends ServiceProvider
             return new Imgix($app[UrlBuilder::class]);
         });
 
-        $this->app->alias(Imgix::class, 'imgix');
+        $this->app->alias(Imgix::class, static::ALIAS);
     }
 }
