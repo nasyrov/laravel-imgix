@@ -8,7 +8,7 @@ return [
 
     'domains' => [
         // 'cdn-1.imgix.net',
-        // 'cdn-2.imgix.net'
+        // 'cdn-2.imgix.net',
     ],
 
     'useHttps' => false,

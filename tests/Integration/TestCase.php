@@ -9,6 +9,14 @@ use Orchestra\Testbench\TestCase as BaseTestCase;
 abstract class TestCase extends BaseTestCase
 {
     /**
+     * @param  \Illuminate\Foundation\Application $app
+     */
+    protected function getEnvironmentSetUp($app)
+    {
+        $app['config']->set('imgix.domains', 'test.imgix.net');
+    }
+
+    /**
      * @param \Illuminate\Foundation\Application $app
      *
      * @return array
