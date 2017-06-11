@@ -15,8 +15,12 @@ class ImgixServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        $configFile = dirname(__DIR__) . '/config/imgix.php';
+
+        $this->mergeConfigFrom($configFile, static::ALIAS);
+
         $this->publishes([
-            dirname(__DIR__) . '/config/imgix.php' => config_path('imgix.php'),
+            $configFile => config_path('imgix.php'),
         ], 'imgix');
     }
 
