@@ -57,6 +57,7 @@ Imgix::createUrl(string $path, array $params = []) : string
 ```
 
 `$path` The path to the image
+
 `$params` The image parameters
 
 ``` php
@@ -73,6 +74,7 @@ imgix(string $path, array $params = []) : string
 ```
 
 `$path` The path to the image
+
 `$params` The image parameters
 
 ``` php
