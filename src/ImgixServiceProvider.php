@@ -21,7 +21,7 @@ class ImgixServiceProvider extends ServiceProvider
 
         $this->publishes([
             $configFile => config_path('imgix.php'),
-        ], 'imgix');
+        ], static::ALIAS);
     }
 
     /**
@@ -31,7 +31,7 @@ class ImgixServiceProvider extends ServiceProvider
     {
         $this->app->singleton(UrlBuilder::class, function () {
             return new UrlBuilder(
-                config('imgix.domains', []),
+                config('imgix.domains'),
                 config('imgix.useHttps', false),
                 config('imgix.signKey', ''),
                 config('imgix.shardStrategy', ShardStrategy::CRC),
