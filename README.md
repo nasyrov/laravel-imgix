@@ -18,13 +18,13 @@ Make sure all dependencies have been installed before moving on:
 
 ## Install
 
-Install via Composer:
+First, pull the package via Composer:
 
 ``` bash
 $ composer require nasyrov/laravel-imgix
 ```
 
-Register the service provider in `config/app.php`:
+Next, register the service provider in `config/app.php`:
 
 ``` php
 'providers' => [
@@ -34,7 +34,7 @@ Register the service provider in `config/app.php`:
 ]
 ```
 
-Register the facade in `config/app.php`:
+Optionally register the facade in `config/app.php`:
 
 ``` php
 'aliases' => [
@@ -44,7 +44,7 @@ Register the facade in `config/app.php`:
 ]
 ```
 
-Publish the config:
+Finally, publish and update the config `config/imgix.php`:
 
 ``` bash
 php artisan vendor:publish --tag=imgix
