@@ -6,6 +6,8 @@ if (!function_exists('imgix')) {
     /**
      * Generate an imgix url for the given path.
      *
+     * @codeCoverageIgnore
+     *
      * @param string $path
      * @param array  $params
      *

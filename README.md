@@ -7,6 +7,8 @@
 [![Quality Score][ico-code-quality]][link-code-quality]
 [![Total Downloads][ico-downloads]][link-downloads]
 
+Laravel package for generating URLs with [Imgix](https://www.imgix.com/).
+
 ## Requirements
 
 Make sure all dependencies have been installed before moving on:
@@ -16,13 +18,13 @@ Make sure all dependencies have been installed before moving on:
 
 ## Install
 
-Install via Composer:
+First, pull the package via Composer:
 
 ``` bash
 $ composer require nasyrov/laravel-imgix
 ```
 
-Register the service provider in `config/app.php`:
+Next, register the service provider in `config/app.php`:
 
 ``` php
 'providers' => [
@@ -32,9 +34,9 @@ Register the service provider in `config/app.php`:
 ]
 ```
 
-Register the facade in `config/app.php`:
+Optionally register the facade in `config/app.php`:
 
-```php
+``` php
 'aliases' => [
     ...
     'Imgix' =>  Nasyrov\Laravel\Imgix\Facades\Imgix::class,
@@ -42,13 +44,47 @@ Register the facade in `config/app.php`:
 ]
 ```
 
-Publish the config:
+Finally, publish and update the config `config/imgix.php`:
 
 ``` bash
-php artisan vendor:publish --provider="Nasyrov\Laravel\Imgix\ImgixServiceProvider"
+php artisan vendor:publish --tag=imgix
 ```
 
 ## Usage
+
+### Facade
+
+``` php
+Imgix::createUrl(string $path, array $params = []) : string
+```
+
+`$path` The path to the image
+
+`$params` The image parameters
+
+``` php
+echo Imgix::createUrl('test.jpg', ['w' => 100, 'h' => 100]);
+
+// Prints out:
+// http://test.imgix.net/test.jpg?w=100&h=100
+```
+
+### Helper
+
+``` php
+imgix(string $path, array $params = []) : string
+```
+
+`$path` The path to the image
+
+`$params` The image parameters
+
+``` php
+echo imgix('test.jpg', ['w' => 100, 'h' => 100]);
+
+// Prints out:
+// http://test.imgix.net/test.jpg?w=100&h=100
+```
 
 ## Testing
 
