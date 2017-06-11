@@ -7,6 +7,8 @@
 [![Quality Score][ico-code-quality]][link-code-quality]
 [![Total Downloads][ico-downloads]][link-downloads]
 
+Laravel package for generating URLs with [Imgix](https://www.imgix.com/).
+
 ## Requirements
 
 Make sure all dependencies have been installed before moving on:

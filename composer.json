@@ -1,7 +1,7 @@
 {
     "name": "nasyrov/laravel-imgix",
     "type": "library",
-    "description": "Laravel support for imgix.",
+    "description": "Laravel package for generating URLs with Imgix.",
     "keywords": [
         "laravel",
         "imgix",
