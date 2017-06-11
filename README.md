@@ -34,7 +34,7 @@ Register the service provider in `config/app.php`:
 
 Register the facade in `config/app.php`:
 
-```php
+``` php
 'aliases' => [
     ...
     'Imgix' =>  Nasyrov\Laravel\Imgix\Facades\Imgix::class,
@@ -45,10 +45,42 @@ Register the facade in `config/app.php`:
 Publish the config:
 
 ``` bash
-php artisan vendor:publish --provider="Nasyrov\Laravel\Imgix\ImgixServiceProvider"
+php artisan vendor:publish --tag=imgix
 ```
 
 ## Usage
+
+### Facade
+
+``` php
+Imgix::createUrl(string $path, array $params = []) : string
+```
+
+`$path` The path to the image
+`$params` The image parameters
+
+``` php
+echo Imgix::createUrl('test.jpg', ['w' => 100, 'h' => 100]);
+
+// Prints out:
+// http://test.imgix.net/test.jpg?w=100&h=100
+```
+
+### Helper
+
+``` php
+imgix(string $path, array $params = []) : string
+```
+
+`$path` The path to the image
+`$params` The image parameters
+
+``` php
+echo imgix('test.jpg', ['w' => 100, 'h' => 100]);
+
+// Prints out:
+// http://test.imgix.net/test.jpg?w=100&h=100
+```
 
 ## Testing
 
