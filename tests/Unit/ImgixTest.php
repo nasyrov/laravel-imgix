@@ -18,7 +18,7 @@ class ImgixTest extends TestCase
     protected function setUp()
     {
         $this->urlBuilder = Mockery::mock(UrlBuilder::class);
-        $this->imgix = new Imgix($this->urlBuilder);
+        $this->imgix      = new Imgix($this->urlBuilder);
     }
 
     protected function tearDown()
@@ -37,7 +37,8 @@ class ImgixTest extends TestCase
         $expectedReturn = 'http://test.imgix.net/bridge.png?h=100&w=100';
 
         $this->urlBuilder
-            ->shouldReceive('createURL')->withArgs($expectedArgs)
+            ->shouldReceive('createURL')
+            ->withArgs($expectedArgs)
             ->once()
             ->andReturn($expectedReturn);
 

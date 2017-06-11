@@ -3,6 +3,7 @@
 namespace Nasyrov\Laravel\Imgix\Facades;
 
 use Illuminate\Support\Facades\Facade;
+use Nasyrov\Laravel\Imgix\ImgixServiceProvider;
 
 /**
  * @method static \Nasyrov\Laravel\Imgix\Imgix createUrl()
@@ -16,6 +17,6 @@ class Imgix extends Facade
      */
     protected static function getFacadeAccessor()
     {
-        return 'imgix';
+        return ImgixServiceProvider::ALIAS;
     }
 }

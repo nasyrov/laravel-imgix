@@ -8,14 +8,20 @@ use Imgix\UrlBuilder;
 
 class ImgixServiceProvider extends ServiceProvider
 {
+    const ALIAS = 'imgix';
+
     /**
      * Bootstrap any application services.
      */
     public function boot()
     {
+        $configFile = dirname(__DIR__) . '/config/imgix.php';
+
+        $this->mergeConfigFrom($configFile, static::ALIAS);
+
         $this->publishes([
-            dirname(__DIR__) . '/config/imgix.php' => config_path('imgix.php'),
-        ], 'imgix');
+            $configFile => config_path('imgix.php'),
+        ], static::ALIAS);
     }
 
     /**
@@ -25,7 +31,7 @@ class ImgixServiceProvider extends ServiceProvider
     {
         $this->app->singleton(UrlBuilder::class, function () {
             return new UrlBuilder(
-                config('imgix.domains', []),
+                config('imgix.domains'),
                 config('imgix.useHttps', false),
                 config('imgix.signKey', ''),
                 config('imgix.shardStrategy', ShardStrategy::CRC),
@@ -37,6 +43,6 @@ class ImgixServiceProvider extends ServiceProvider
             return new Imgix($app[UrlBuilder::class]);
         });
 
-        $this->app->alias(Imgix::class, 'imgix');
+        $this->app->alias(Imgix::class, static::ALIAS);
     }
 }

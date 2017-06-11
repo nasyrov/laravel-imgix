@@ -53,6 +53,7 @@ php artisan vendor:publish --provider="Nasyrov\Laravel\Imgix\ImgixServiceProvide
 ## Testing
 
 ``` bash
+$ composer lint
 $ composer test
 ```
 
