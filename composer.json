@@ -19,8 +19,8 @@
     ],
     "require": {
         "php": ">=5.6.4",
-        "illuminate/support": "~5.4",
-        "imgix/imgix-php": "~1.1"
+        "illuminate/support": "^6.0",
+        "imgix/imgix-php": "^3.0"
     },
     "require-dev": {
         "mockery/mockery": "~0.9",
