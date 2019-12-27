@@ -27,7 +27,7 @@ class Imgix
      * Create an imgix url for the given path.
      *
      * @param string $path
-     * @param array $params
+     * @param array  $params
      *
      * @return string
      */

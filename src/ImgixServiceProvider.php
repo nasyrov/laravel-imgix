@@ -39,7 +39,7 @@ class ImgixServiceProvider extends ServiceProvider
         });
 
         $this->app->singleton(Imgix::class, function ($app) {
-            return new Imgix($app[UrlBuilder::class]);
+            return new Imgix($app[ UrlBuilder::class ]);
         });
 
         $this->app->alias(Imgix::class, static::ALIAS);
