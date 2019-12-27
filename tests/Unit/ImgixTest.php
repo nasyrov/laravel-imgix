@@ -15,13 +15,13 @@ class ImgixTest extends TestCase
     /** @var \Nasyrov\Laravel\Imgix\Imgix */
     protected $imgix;
 
-    protected function setUp()
+    protected function setUp() :void
     {
         $this->urlBuilder = Mockery::mock(UrlBuilder::class);
         $this->imgix      = new Imgix($this->urlBuilder);
     }
 
-    protected function tearDown()
+    protected function tearDown() :void
     {
         Mockery::close();
     }
